@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Se actualiza la pagina index para qu contenga nuevas etiquetas meta para la semantica del body -->
 
-<html lang="es">
+<html lang="es"  xmlns:th="https://www.thymeleaf.org">
     <head>
         <title>Tienda</title>
         <meta charset="UTF-8">
@@ -11,6 +11,7 @@
 
     </head>
     <body>
+        <header th:replace="layout/plantilla :: header"></header>
         <div>
             <header id="encabezado"> <!-- Etiqueta para ofrecerle al browser info -->
                 <h1>TechShop</h1>
@@ -99,6 +100,7 @@
 
                 </article> 
             </section>|
+            <footer th:replace="layout/plantilla :: footer"/>
             <footer id="piedepagina">
                 Derechos Reservados &COPY; 2022 <address Style="display: inline">Tel 8838-8847 </address>
             </footer>
