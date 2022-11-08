@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Techshop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="@{css/menu.css}" rel="stylesheet" type="text/css/">
     </head>
+
     <body>
-        <div>TODO write content</div>
+        <div class="contenido">
+            <h2>Listado de articulos</h2>
+            <a th:href="@{/categoria/nuevo}">Nuevo Categoria</a> 
+
+
+            </br>
+            </br>
+            <br/>
+            <br/>
+            <div th:if="${categorias != null and !categorias.empty}">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Descripcion</th>
+                           
+                            <th>Activo</th>
+                            <th>Modificar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${articulos}" >
+                            <td th:text="${item.descripcion}"></td>
+                            <td> <input type="checkbox" name="activo" th:checked="${item.activo}" disabled/></td>
+                            <td><a th:href="@{/categoria/modificar/} + ${item.idCategoria}">Modificar</a></td>                          
+                            <td><a th:href="@{/categoria/eliminar/} + ${item.idCategoria}">Eliminar</a></td>    
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${articulos = null or articulos.empty}">
+                La lista de articulos esta vacia
+            </div>
+        </div>
     </body>
 </html>

@@ -20,5 +20,6 @@ public interface ArticuloService {
     public void delete(Articulo articulo);
     /*Elimina registros*/
 
-
+    public List<Articulo> getPorExistencias(int existencias);
+    public List<Articulo> getPorExistenciasCategorias(int existencias, Long idCategoria);
 }
