@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="contenido">
-            <h2>Nuestros articulos</h2>
+            <h2>[[#{index.titulo}]]</h2>
        <!-- <p th:text="${mensaje}"></p> --> 
        <h1>Listado de articulos</h1>
        <!-- comment <p>Nombre: <span th:text="${articulo.nombre}"></span></p>
@@ -25,8 +25,8 @@
        <table border="1">
            <thead>
                <tr>
-                   <th>Descripcion</th>
-                   <th>Precio</th>
+                   <th th:text="#{articulo.descripcion}">Descripcion</th>
+                   <th th:text="#{articulo.precio}">Precio</th>
                   
                </tr>
            </thead>
@@ -42,7 +42,7 @@
        </table>
     </div>
        <div th:if="${articulos = null or articulos.empty}">
-           La lista de articulos esta vacia
+           <p th:text="#{articulo.no_mostrar}"></p>
        </div>
        </div>
     </body>

@@ -10,8 +10,8 @@
 
     <body>
         <div class="contenido">
-            <h2>Listado de articulos</h2>
-            <a th:href="@{/articulo/nuevo}">Nuevo Articulo</a> 
+            <h2 th:text="#{articulo.titulo}">Listado de articulos</h2>
+            <a th:href="@{/articulo/nuevo}" th:text="#{articulo.nuevo}">Nuevo Articulo</a> 
 
 
             </br>
@@ -23,12 +23,12 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-                            <th>Existencia</th>
-                            <th>Activo</th>
-                            <th>Modificar</th>
-                            <th>Eliminar</th>
+                            <th th:text="#{articulo.descripcion}">Descripcion</th>
+                            <th th:text="#{articulo.precio}">Precio</th>
+                            <th th:text="#{articulo.existencias}">Existencia</th>
+                            <th th:text="#{articulo.activo}">Activo</th>
+                            <th th:text="#{articulo.modificar}">Modificar</th>
+                            <th th:text="#{articulo.eliminar}">Eliminar</th>
 
                         </tr>
                     </thead>
@@ -38,8 +38,8 @@
                             <td th:text="${#numbers.formatDecimal(item.precio, 3, 2)}"></td>
                             <td th:text="${item.existencias}"></td>
                             <td> <input type="checkbox" name="activo" th:checked="${item.activo}" disabled/></td>
-                            <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}">Modificar</a></td>                          
-                            <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}">Eliminar</a></td>    
+                            <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}" th:text="#{articulo.modificar}">Modificar</a></td>                          
+                            <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}" th:text="#{articulo.eliminar}">Eliminar</a></td>    
 
                         </tr>
                     </tbody>
